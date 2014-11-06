@@ -5,7 +5,7 @@ include_once('batchProcessHelper.php');
 class userImportProcess extends batchProcessHelper {
 
 	function load_data() {
-		return csv_to_array(ABSPATH . 'example_data.csv');
+		return csv_to_array(ABSPATH . 'wp-scripts/example_data.csv');
 	}
 
 	function process_item($item) {

@@ -36,8 +36,13 @@ class batchProcessHelper {
 			$this->handle_404();
 
 		$user = wp_get_current_user();
-		if (!is_super_admin($user->ID))
-			$this->handle_404();
+		if (is_multisite())  {
+			if (!is_super_admin($user->ID))
+				$this->handle_404();
+		} else {
+			if (!in_array('administrator', $user->roles))
+				$this->handle_404();
+		}
 
 		$this->init($options);
 	}

@@ -94,7 +94,7 @@ class batchProcessHelper {
 	 * once we hit the batch_size limit.
 	 **/
 	function process_data($data) {
-		$counter = 1;
+		$counter = 0;
 
 		foreach ($data as $item) {
 			$result = $this->process_item($item);

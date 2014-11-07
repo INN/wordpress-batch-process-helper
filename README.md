@@ -17,9 +17,9 @@ If you find yourself in this situation and need to process a large data set, per
 2. **`process_item`**
 
     This method should accept one argument: `$item` -- one of the items from your data queue.
-    
+
     Do any data processing you need in this function, returning true on success or false on error.
-    
+
 ### An example class (from example.php):
 
     include_once('batchProcessHelper.php');
@@ -35,7 +35,7 @@ If you find yourself in this situation and need to process a large data set, per
         return true;
       }
     }
-    
+
 ### Instantiating `userImportProcess`:
 
 
@@ -48,7 +48,7 @@ If you find yourself in this situation and need to process a large data set, per
 Remember to call `process` to kick of the... process.
 
 	$process->process();
-	
+
 ### Specifying a `log_file`:
 
 You can optionally specify a `log_file` when you instantiate your class.
@@ -101,9 +101,13 @@ When it finishes processing all items, it will return the message, "Finished pro
 
 ## Notes
 
-### You must have a Super Admin account to use `batchProcessHelper`
+### An Administrator account is required
 
-`batchProcessHelper` checks that you are currently logged into your site and have Super Admin privileges. If you are not logged in or do not have Super Admin privileges, `batchProcessHelper` returns a 404 error.
+`batchProcessHelper` checks that you are currently logged into your site and have Administrator privileges.
+
+If you have a multisite WordPress install, you must have Super Admin privileges. If you have a standalone install, you must have an account with Administrator privileges.
+
+If you are not logged in or do not have Administrator privileges, `batchProcessHelper` returns a 404 error.
 
 ### Restrict access to your `wp-scripts` directory
 

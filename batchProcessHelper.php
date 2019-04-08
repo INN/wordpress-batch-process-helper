@@ -209,13 +209,13 @@ class batchProcessHelper {
 
 		global $wp_filesystem;
 
-		$exisiting_log = (string) $wp_filesystem->get_contents($this->log_file);
+		$existing_log = (string) $wp_filesystem->get_contents($this->log_file);
 
 		$to_append = '';
 		foreach ($this->log_statements as $msg)
 			$to_append .= $msg . "\n";
 
-		$wp_filesystem->put_contents($this->log_file, $exisiting_log . $to_append, FS_CHMOD_FILE);
+		$wp_filesystem->put_contents($this->log_file, $existing_log . $to_append, FS_CHMOD_FILE);
 	}
 
 	/* 404 Page */
